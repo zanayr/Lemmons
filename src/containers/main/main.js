@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
-import Title from '../../components/title/title';
+import Title from '../../components/Title/Title';
 import List from '../../components/List/List';
+
+import styles from './Main.module.css';
 
 class Main extends Component {
     state = {
@@ -16,7 +18,7 @@ class Main extends Component {
     }
     render () {
         return (
-            <main>
+            <main className={styles.Main}>
                 <Title content={'Main'}/>
                 <List data={this.state}/>
             </main>
