@@ -1,0 +1,27 @@
+.FormInput_Group {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.FormInput_Label {
+
+}
+
+
+.FormInput_Input {
+
+}
+
+.FormInput_Input_Max {
+
+}
+
+.FormInput_Max {
+
+}
+
+.FormInput_Max_Warn {
+
+}

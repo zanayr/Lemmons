@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
 
-import Main from './containers/Authentication/Authentication';
+import Authentication from './containers/Authentication/Authentication';
 
 function App() {
   return (
