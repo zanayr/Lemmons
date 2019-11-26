@@ -1,30 +1,43 @@
 import React, {Component} from 'react';
 
-import FormButton from '../../components/Input/Buttons/FormButton/FormButton';
-import FormInput from '../../components/Input/Fields/FormInput/FormInput';
+import AuthenticationForm from '../../components/Forms/Authentication/AuthenticationForm';
 
 import styles from './Authentication.module.css';
 
 class Authentication extends Component {
     state = {
+        active: 0,
+        enabled: false,
         password: '',
         username: ''
     };
-
     
     handle_onChange = (e, field) => {
         this.setState({
             ...this.state,
             [field]: e.target.value
+        }, () => {
+            this.setState({
+                ...this.state,
+                enabled: this.state.password.length > 0 && this.state.username.length > 0
+            });
         });
     };
     handle_onCreateAccount = (e) => {
         e.preventDefault();
-
+        this.setState({
+            ...this.state,
+            active: 1
+        });
+        //  Change to CreateUser page
     };
     handle_onSignIn = (e) => {
         e.preventDefault();
-
+        this.setState({
+            ...this.state,
+            active: 0
+        });
+        // Authenticate
     };
     
 
@@ -32,23 +45,7 @@ class Authentication extends Component {
         return (
             <main className={styles.Authentication_Main}>
                 <div className={styles.Authentication_Main_Wrapper}>
-                    <form>
-                        <FormInput
-                            change={(e) => this.handle_onChange(e, 'username')}
-                            label={'Username'}
-                            value={this.state.username}/>
-                        <FormInput
-                            change={(e) => this.handle_onChange(e, 'password')}
-                            label={'Password'}
-                            value={this.state.password}/>
-                        <FormButton
-                            active
-                            click={this.handle_onSignIn}
-                            value={'Sign In'}/>
-                        <FormButton
-                            click={this.handle_onCreateAccount}
-                            value={'Create Account'}/>
-                    </form>
+                    <AuthenticationForm/>
                 </div>
             </main>
             

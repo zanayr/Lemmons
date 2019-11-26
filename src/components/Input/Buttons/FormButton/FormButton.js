@@ -9,6 +9,7 @@ const FormButton = (props) => {
     return (
             <button
                 className={stylesArr.join(' ')}
+                disabled={props.disabled}
                 onClick={props.click}
                 name={props.name}
                 type={'submit'}>{props.value}</button>
