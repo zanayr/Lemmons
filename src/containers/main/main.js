@@ -16,7 +16,7 @@ class Main extends Component {
             detail: 'Lorem ipsum dolor set.'
         }
     }
-    render () {
+    render() {
         return (
             <main className={styles.Main}>
                 <Title content={'Main'}/>
