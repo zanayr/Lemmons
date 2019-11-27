@@ -1,19 +1,21 @@
 import React from 'react';
 
-import styles from './FormButton.module.css';
+import styles from './Button.module.css';
 
-const FormButton = (props) => {
-    let stylesArr = [styles.FormButton_Button];
-    if (props.active)
-        stylesArr.push(styles.FormButton_Active);
+const formButton = (props) => {
+    let buttonStyles = [styles.Button];
+    if (props.active && !props.disabled)
+        buttonStyles.push(styles.Active);
+    if (!props.disabled)
+        buttonStyles.push(styles.Enabled);
     return (
-            <button
-                className={stylesArr.join(' ')}
-                disabled={props.disabled}
-                onClick={props.click}
-                name={props.name}
-                type={'submit'}>{props.value}</button>
+        <button
+            className={buttonStyles.join(' ')}
+            disabled={props.disabled}
+            onClick={props.click}
+            name={props.name}
+            type={'submit'}>{props.value}</button>
     );
 };
 
-export default FormButton;
+export default formButton;

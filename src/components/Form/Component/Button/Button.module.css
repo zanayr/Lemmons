@@ -1,3 +1,21 @@
-.FormButton_Button {
-
+.Button {
+    background-color: var(--white);
+    border: solid 1px var(--disabled);
+    border-radius: 1px;
+    color: var(--disabled);
+    cursor: default;
+    padding: 0px 12px;
+    transition: background-color 0.66s ease, border-color 0.66s ease;
+    height: 32px;
+}
+.Button.Enabled {
+    border-color: var(--primary);
+    color: var(--primary);
+    cursor: pointer;
+}
+.Button.Active {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--primary);
+    color: var(--white);
 }

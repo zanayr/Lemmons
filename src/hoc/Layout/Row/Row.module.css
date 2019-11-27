@@ -1,0 +1,29 @@
+.Row {
+    height: auto;
+    width: 100%;
+}
+.Row > .Wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: flex-start;
+    width: auto;
+}
+
+/*  Row Justify Styles  */
+.Justify_Around > .Wrapper {
+    justify-content: space-around;
+}
+.Justify_Between > .Wrapper {
+    justify-content: space-between;
+}
+.Justify_End > .Wrapper {
+    justify-content: flex-end;
+}
+.Justify_Evenly > .Wrapper {
+    justify-content: space-evenly;
+}
+.Justify_Start > .Wrapper {
+    justify-content: flex-start;
+}

@@ -1,0 +1,12 @@
+div.Column {
+    height: auto;
+    width: 100%;
+}
+div.Column > div.Column_Wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    width: auto;
+}

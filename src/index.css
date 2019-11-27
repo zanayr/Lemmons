@@ -1,7 +1,10 @@
 /*  Color  */
 html:root {
   --white: #f8f8f8;
-  --black: #212121;
+  --black: #282323;
+  --disabled: #d8d0d0;
+  --primary: #0040ff;
+  --secondary: #ffec44;
 }
 /*  Reset  */
 html, body, header, main, footer, nav, aside, section, div,

@@ -1,24 +1,21 @@
 import React from 'react';
 
-import styles from './FormInput.module.css';
+import styles from './Field.module.css';
 
-const FormInput = (props) => {
-    let inputStyles = [styles.FormInput_Input];
-    let maxStyles = [styles.FormInput_Max];
-
-    if (props.value.length === props.max)
-        inputStyles.push(styles.FormInput_Input_Max);
+const formField = (props) => {
+    let maxStyles = [styles.Max];
     if (props.max > -1 && props.value.length >= (props.max - 5))
-        maxStyles = [styles.FormInput_Max_Warn];
+        maxStyles.push(styles.Max_Warn);
     
     return (
-        <div className={styles.FormInput_Group}>
-            <label className={styles.FormInput_Label}>{props.label}</label>
+        <div className={styles.Group}>
+            <label className={styles.Label}>{props.label}</label>
             <input
-                className={inputStyles.join(' ')}
+                className={styles.Input}
                 onChange={props.change}
                 maxLength={props.max > -1 ? props.max : null}
                 name={props.label.toLowerCase()}
+                placeholder={props.placeholder}
                 type={props.label === 'Password' ? 'password' : 'text'}
                 value={props.value}/>
             {props.max ?
@@ -26,8 +23,9 @@ const FormInput = (props) => {
                 <p>{props.max - props.value.length}</p>
             </span>
             : null}
+            <span className={styles.Bottom_Border}></span>
         </div>
     );
 };
 
-export default FormInput;
+export default formField;
