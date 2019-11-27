@@ -1,54 +1,41 @@
 import React, {Component} from 'react';
 
 import AuthenticationForm from '../../components/Form/Authentication/Authentication';
+import CreateUserForm from '../../components/Form/Authentication/Authentication';
 
 import styles from './Authentication.module.css';
 
 class Authentication extends Component {
-    // state = {
-    //     active: 0,
-    //     enabled: false,
-    //     password: '',
-    //     username: ''
-    // };
-    
-    // handle_onChange = (e, field) => {
-    //     this.setState({
-    //         ...this.state,
-    //         [field]: e.target.value
-    //     }, () => {
-    //         this.setState({
-    //             ...this.state,
-    //             enabled: this.state.password.length > 0 && this.state.username.length > 0
-    //         });
-    //     });
-    // };
-    // handle_onCreateAccount = (e) => {
-    //     e.preventDefault();
-    //     this.setState({
-    //         ...this.state,
-    //         active: 1
-    //     });
-    //     //  Change to CreateUser page
-    // };
-    // handle_onSignIn = (e) => {
-    //     e.preventDefault();
-    //     this.setState({
-    //         ...this.state,
-    //         active: 0
-    //     });
-    //     // Authenticate
-    // };
-    
+    state = {
+        active: 0
+    };
 
+    //  Event Handlers
+    handle_onCreateUser = (e) => {
+        e.preventDefault();
+        this.setState({active: 1});
+    }
+    handle_onSignIn = (e) => {
+        e.preventDefault();
+        this.setState({active: 0});
+    }
     render() {
+        let form = (<AuthenticationForm
+            active={this.state.active}
+            onCreateUser={this.handle_onCreateUser}
+            onSignIn={this.handle_onSignIn}/>);
+        if (this.state.active)
+            form = (<CreateUserForm
+                active={this.state.active}
+                onCreateUser={this.handle_onCreateUser}
+                onSignIn={this.handle_onSignIn}/>);
         return (
             <main className={styles.Authentication_Main}>
                 <div className={styles.Authentication_Main_Wrapper}>
-                    <AuthenticationForm/>
+                    {form}
+                    
                 </div>
             </main>
-            
         );
     }
 }

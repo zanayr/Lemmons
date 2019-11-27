@@ -1,0 +1,15 @@
+.Form {
+    border: solid 1px var(--primary);
+    border-radius: 1px;
+    max-width: 375px;
+}
+
+.Form > .Form_Wrapper {
+    height: 100%;
+    padding: 12px;
+    width: auto;
+}
+
+.Form > .Form_Wrapper > div:not(:last-child) {
+    margin-bottom: 24px;
+}
