@@ -1,9 +1,9 @@
-.Authentication_Main {
+.Main {
     max-width: 375px;
     margin: 48px auto;
 }
 
-.Authentication_Main_Wrapper {
+.Main_Wrapper {
     height: 100%;
     width: auto;
 }

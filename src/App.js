@@ -1,12 +1,16 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
 import styles from './App.module.css';
 
-import Authentication from './containers/Authentication/Authentication';
+import SignIn from './containers/SignIn/SignIn';
+import SignUp from './containers/SignUp/SignUp';
 
 function App() {
   return (
     <div className={styles.App}>
-      <Authentication/>
+      <Route path='/auth' component={SignIn} />
+      <Route path='/signup' component={SignUp} />
     </div>
   );
 }

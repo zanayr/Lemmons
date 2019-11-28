@@ -1,0 +1,9 @@
+.Main {
+    max-width: 375px;
+    margin: 48px auto;
+}
+
+.Main_Wrapper {
+    height: 100%;
+    width: auto;
+}

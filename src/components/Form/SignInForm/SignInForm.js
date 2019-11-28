@@ -6,9 +6,9 @@ import Field from '../Component/Field/Field';
 import Row from '../../../hoc/Layout/Row/Row';
 
 
-import styles from './CreateUser.module.css';
+import styles from './SignInForm.module.css';
 
-class FormCreateUser extends Component {
+class SignInForm extends Component {
     state = {
         password: '',
         username: ''
@@ -37,11 +37,6 @@ class FormCreateUser extends Component {
                             label={'Password'}
                             placeholder={'password'}
                             value={this.state.password}/>
-                        <Field
-                            change={(e) => this.handle_onChange(e, 'confirm')}
-                            label={'Confirm'}
-                            placeholder={'password'}
-                            value={this.state.password}/>
                     </Column>
                     <Row justify={'evenly'}>
                         <Button
@@ -61,4 +56,4 @@ class FormCreateUser extends Component {
     }
 };
 
-export default FormCreateUser;
+export default SignInForm;
