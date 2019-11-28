@@ -1,0 +1,21 @@
+.Counter {
+    align-items: center;
+    background-color: transparent;
+    border-radius: 1px;
+    display: flex;
+    flex-direction: column;
+    font-size: 7px;
+    font-weight: 400;
+    height: 18px;
+    justify-content: center;
+    margin: 0px 4px 0px 12px;
+    opacity: 0;
+    transition: background-color 0.33s ease, opacity 0.33s ease;
+    width: 18px;
+}
+.Alert {
+    background-color: var(--secondary);
+}
+.Alert > p {
+    font-weight: 700;
+}

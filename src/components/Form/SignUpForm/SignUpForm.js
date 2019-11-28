@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Column from '../../../hoc/Layout/Column/Column';
 import Button from '../Component/Button/Button';
@@ -11,6 +12,7 @@ import styles from './SignUpForm.module.css';
 class SignUpForm extends Component {
     state = {
         password: '',
+        confirm: '',
         username: ''
     }
 
@@ -21,6 +23,14 @@ class SignUpForm extends Component {
             [name]: e.target.value
         });
     }
+    handle_onSignIn = (e) => {
+        e.preventDefault();
+        this.props.history.push({pathname: '/auth'});
+    }
+    handle_onSignUp = (e) => {
+        e.preventDefault();
+        console.log('Creating account', 'user: ' + this.state.username, 'password: ' + this.state.password);
+    }
 
     render() {
         return (
@@ -30,29 +40,38 @@ class SignUpForm extends Component {
                         <Field
                             change={(e) => this.handle_onChange(e, 'username')}
                             label={'Username'}
-                            placeholder={'username'}
+                            max={32}
+                            min={4}
+                            placeholder={'Username'}
+                            type='text'
                             value={this.state.username}/>
                         <Field
                             change={(e) => this.handle_onChange(e, 'password')}
                             label={'Password'}
-                            placeholder={'password'}
+                            max={32}
+                            min={8}
+                            placeholder={'Password'}
+                            type={'password'}
                             value={this.state.password}/>
                         <Field
                             change={(e) => this.handle_onChange(e, 'confirm')}
-                            label={'Confirm'}
-                            placeholder={'password'}
-                            value={this.state.password}/>
+                            label={'Confirm Password'}
+                            max={32}
+                            min={8}
+                            placeholder={'Confirm Password'}
+                            type={'password'}
+                            value={this.state.confirm}/>
                     </Column>
                     <Row justify={'evenly'}>
                         <Button
-                            active={!this.props.active}
-                            disabled={!(this.state.password.length > 7 && this.state.username.length)}
-                            click={this.props.onSignIn}
+                            active={false}
+                            disabled={false}
+                            click={this.handle_onSignIn}
                             value={'Sign In'}/>
                         <Button
-                            active={this.props.active}
+                            active={true}
                             disabled={false}
-                            click={this.props.onCreateUser}
+                            click={this.handle_onSignUp}
                             value={'Create Account'}/>
                     </Row>
                 </div>
@@ -61,4 +80,4 @@ class SignUpForm extends Component {
     }
 };
 
-export default SignUpForm;
+export default withRouter(SignUpForm);

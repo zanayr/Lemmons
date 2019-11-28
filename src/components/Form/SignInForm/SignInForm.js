@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Column from '../../../hoc/Layout/Column/Column';
 import Button from '../Component/Button/Button';
@@ -21,6 +22,14 @@ class SignInForm extends Component {
             [name]: e.target.value
         });
     }
+    handle_onSignIn = (e) => {
+        e.preventDefault();
+        console.log('Signing in with', 'user: ' + this.state.username, 'password: ' + this.state.password);
+    }
+    handle_onSignUp = (e) => {
+        e.preventDefault();
+        this.props.history.push({pathname: '/signup'});
+    }
 
     render() {
         return (
@@ -40,14 +49,14 @@ class SignInForm extends Component {
                     </Column>
                     <Row justify={'evenly'}>
                         <Button
-                            active={!this.props.active}
+                            active={true}
                             disabled={!(this.state.password.length > 7 && this.state.username.length)}
-                            click={this.props.onSignIn}
+                            click={this.handle_onSignIn}
                             value={'Sign In'}/>
                         <Button
-                            active={this.props.active}
+                            active={false}
                             disabled={false}
-                            click={this.props.onCreateUser}
+                            click={this.handle_onSignUp}
                             value={'Create Account'}/>
                     </Row>
                 </div>
@@ -56,4 +65,4 @@ class SignInForm extends Component {
     }
 };
 
-export default SignInForm;
+export default withRouter(SignInForm);

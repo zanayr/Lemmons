@@ -49,33 +49,12 @@ span.Bottom_Border {
     width: 0%;
 }
 .Group:focus-within .Bottom_Border {
-    opacity: 1;
     width: 100%;
 }
-
-
-/*  Max Length Counter  */
-.Max {
-    align-items: center;
-    background-color: transparent;
-    border-radius: 1px;
-    display: flex;
-    flex-direction: column;
-    font-size: 7px;
-    font-weight: 400;
-    height: 18px;
-    justify-content: center;
-    margin: 0px 4px 0px 12px;
-    opacity: 0;
-    transition: background-color 0.33s ease, opacity 0.33s ease;
-    width: 18px;
+.Group span {
+    /* display: none; */
 }
-.Group:focus-within .Max {
+.Group:focus-within span {
+    /* display: flex; */
     opacity: 1;
-}
-.Max_Warn {
-    background-color: var(--secondary);
-}
-.Max_Warn > p {
-    font-weight: 700;
 }
